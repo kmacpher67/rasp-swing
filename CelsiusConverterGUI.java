@@ -1,9 +1,10 @@
+import java.awt.*;
 
 /**
  * Write a description of class celisiusConverterGUI here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Ken MacPherson
+ * @version 1.01
  */
 /*
  * CelsiusConverterGUI.java
@@ -13,9 +14,24 @@
  
  
 public class CelsiusConverterGUI extends javax.swing.JFrame {
-     
+
+    GraphicsDevice myDevice;
+    Window myWindow;
+
     /** Creates new form CelsiusConverterGUI */
-    public CelsiusConverterGUI() {
+    public CelsiusConverterGUI()
+    {
+
+        try {
+            System.out.println("tst");
+            setUndecorated(true);
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+            System.out.println("screenSize=" + screenSize.height +" wid=" + screenSize.width);
+            setBounds(0, 0, screenSize.width, screenSize.height);
+        } catch(Exception e){
+            System.out.println("Exception" );
+            e.printStackTrace();
+        }
         initComponents();
     }
      
@@ -30,7 +46,8 @@ public class CelsiusConverterGUI extends javax.swing.JFrame {
         celsiusLabel = new javax.swing.JLabel();
         convertButton = new javax.swing.JButton();
         fahrenheitLabel = new javax.swing.JLabel();
- 
+
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Celsius Converter");
         tempTextField.setText("10");
@@ -80,7 +97,7 @@ public class CelsiusConverterGUI extends javax.swing.JFrame {
         );
         pack();
     }// </editor-fold>//GEN-END:initComponents
- 
+
     private void convertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertButtonActionPerformed
 //Parse degrees Celsius as a double and convert to Fahrenheit
         int tempFahr = (int)((Double.parseDouble(tempTextField.getText()))
