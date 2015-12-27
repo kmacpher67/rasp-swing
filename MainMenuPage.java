@@ -9,6 +9,7 @@ public class MainMenuPage extends JDialog {
     private JButton buttonCancel;
     private JButton buttonSpeed;
     private JButton buttonMenu;
+    private JButton buttonTemp;
     JMenuBar menuBar;
     JMenu menu, submenu;
     JMenuItem menuItem;
@@ -55,6 +56,26 @@ public class MainMenuPage extends JDialog {
 
         //Create the menu bar.
         //MenuDropDown();
+        buttonMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Menu Button Clicked!");
+
+            }
+        });
+        buttonTemp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Menu Button Clicked!");
+                if (buttonTemp.isSelected()){
+                    buttonTemp.setSelected(false);
+                }
+                else{
+                    buttonTemp.setSelected(true);
+                }
+
+            }
+        });
     }
 
 
