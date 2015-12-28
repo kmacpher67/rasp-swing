@@ -10,6 +10,7 @@ public class MainMenuPage extends JDialog {
     private JButton buttonSpeed;
     private JButton buttonMenu;
     private JButton buttonTemp;
+    private JLabel statusBar;
     JMenuBar menuBar;
     JMenu menu, submenu;
     JMenuItem menuItem;
@@ -60,25 +61,34 @@ public class MainMenuPage extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Menu Button Clicked!");
+                if (buttonMenu.isSelected()){
+                    buttonMenu.setSelected(false);
+                    statusBar.setText("Main Menu Disabled cause you're here MORON!.");
+                }
+                else
+                {
+                    buttonMenu.setSelected(true);
+                    statusBar.setText("Main Menu");
+                }
 
             }
         });
         buttonTemp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Menu Button Clicked!");
+                System.out.println("HOT Buttontemp Clicked!");
                 if (buttonTemp.isSelected()){
                     buttonTemp.setSelected(false);
+                    statusBar.setText("Temp is really kinda of HOT!!! ###F or ###C <set lang>");
                 }
-                else{
+                else
+                {
                     buttonTemp.setSelected(true);
+                    statusBar.setText("My butt is hot. <CLICKED>");
                 }
-
             }
         });
     }
-
-
 
     /** Returns an ImageIcon, or null if the path was invalid. */
     protected static ImageIcon createImageIcon(String path) {
@@ -92,14 +102,29 @@ public class MainMenuPage extends JDialog {
     }
 
     private void onOK() {
-        System.out.println("OK BUTTON CKICKED");
-
+        if (buttonOK.isSelected()){
+            buttonOK.setSelected(false);
+            statusBar.setText("STATUS button UNclicked & sucks");
+        }
+        else
+        {
+            buttonOK.setSelected(true);
+            statusBar.setText("Status still sucksclicked");
+        }
     }
 
     // onSpeed
     private void onSpeed() {
         System.out.println("On Speed button clicked");
-
+        if (buttonSpeed.isSelected()){
+            buttonSpeed.setSelected(false);
+            statusBar.setText("On Speed button UNclicked");
+        }
+        else
+        {
+            buttonSpeed.setSelected(true);
+            statusBar.setText("On Speed button clicked");
+        }
     }
 
     private void onCancel() {
@@ -110,7 +135,9 @@ public class MainMenuPage extends JDialog {
 
     public static void main(String[] args) {
         MainMenuPage dialog = new MainMenuPage();
+        dialog.setUndecorated(true);
         dialog.pack();
+        dialog.setSize(480,360);
         dialog.setVisible(true);
         System.exit(0);
     }
